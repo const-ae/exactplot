@@ -12,6 +12,15 @@ around [`tikzDevice`](https://daqana.github.io/tikzDevice/) and provides
 utility functions to compose grid plots (e.g., `ggplot2` output, but not
 base plots).
 
+## Disclaimer
+
+This is a *work-in-progress* package and mainly serves as a collection
+of scripts that I have used in my past papers to produce my scientific
+figures. I currently do not plan to release it on CRAN and I am only
+planning to add features if I need them for my work. If you would like
+to see some feature included, please open a pull request, or feel free
+to fork the package.
+
 ## Installation
 
 You can install the development version of `exactplot` from Github:

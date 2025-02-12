@@ -1,0 +1,26 @@
+Package: exactplot
+Type: Package
+Title: Produce figures exactly.
+Version: 0.1.0
+Authors@R: person("Constantin", "Ahlmann-Eltze", email = "artjom31415@googlemail.com", 
+               role = c("aut", "cre"), comment = c(ORCID = "0000-0002-3762-068X"))
+Description: The goal of exactplo` is to produce millimeter-exact figure layouts and annotate your plots with the full power of Latex. 
+  exactplot wraps around tikzDevice and provides utility functions to compose grid plots (e.g., `ggplot2` output, but not base plots).
+URL: https://github.com/const-ae/exactplot
+BugReports: https://github.com/const-ae/exactplot/issues
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: 
+    ggplot2,
+    purrr,
+    scales,
+    stringr,
+    tinytex,
+    withr,
+    cowplot,
+    grid,
+    plotgardener,
+    tikzDevice
+RoxygenNote: 7.3.2
+Roxygen: list(markdown = TRUE)

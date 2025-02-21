@@ -2,7 +2,11 @@
 #' @import ggplot2
 NULL
 
-
+#' Object that holds exactplot defaults
+#'
+#' See for example `xp$fontsize`
+#'
+#' @export
 xp <- new.env(parent = emptyenv())
 xp$fontsize <- 7
 xp$fontsize_small <- 6

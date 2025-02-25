@@ -95,7 +95,7 @@ xp_compose_plots <- function(..., .plot_objs = NULL, width = 180, height = 110, 
   })
 
   plots <- if(is.null(.plot_objs)){
-    list(...)
+    rlang::dots_list(...)
   }else{
     .plot_objs
   }
@@ -136,7 +136,7 @@ xp_compose_plots <- function(..., .plot_objs = NULL, width = 180, height = 110, 
         .width <- obj$width %||% width
         .height <- obj$height %||% height
         .units <- obj$units %||% units
-        plotgardener::plotGG(obj$plot, x = .x, y = .y, width = .width, height = .height, default.units = .units)
+        plotgardener::plotGG(obj$plot, x = x0 + .x, y = y0 + .y, width = .width, height = .height, default.units = .units)
       }else{
         warning("Cannot handle object of class: ", toString(class(obj)))
       }
@@ -189,12 +189,12 @@ xp_text <- function(label, x = 0, y = 0, fontsize = xp$fontsize, hjust = 0, vjus
 #' @export
 xp_origin <- function(..., .plot_objs = NULL, x = 0, y = 0){
   plots <- if(is.null(.plot_objs)){
-    list(...)
+    rlang::dots_list(...)
   }else{
     .plot_objs
   }
   res <- list(plots = plots, x0 = x, y0 = y)
-  class(res) <- "plotexact_origin"
+  class(res) <- "exactplot_origin"
   res
 }
 

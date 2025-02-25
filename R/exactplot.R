@@ -135,7 +135,19 @@ xp_get_legend <- function(plot){
 }
 
 
-
+#' Add a pretty UMAP (or tSNE) axis to a plot
+#'
+#' @param label the axis label
+#' @param fontsize the font size of the axis label
+#' @param arrow_length length of the axis lines (in `units`)
+#' @param label_offset how far away from the axis the text is positioned (in `units`)
+#' @param fix_coord flag if a the aspect ratio is fixed to 1.
+#' @param remove_axes if the original axes are removed by modifying the theme.
+#' @param arrow_spec the definition of the `grid::arrow`
+#' @param units the unit used for the arguments.
+#' @param ... additional arguments passed to `coord_fixed`.
+#'
+#' @export
 xp_umap_axis <- function(label = "UMAP", fontsize = xp$fontsize_small, arrow_length = 10, label_offset = 1, fix_coord = TRUE, remove_axes = TRUE,
                        arrow_spec = grid::arrow(ends = "both", type = "closed", angle = 20, length = unit(arrow_length / 7, units)),
                        units = "mm", ...){

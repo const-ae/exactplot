@@ -72,6 +72,8 @@ save_plot <- function(filename, plot = ggplot2::last_plot(), width = 6.2328, hei
 #' @param .plot_objs alternative specification of the panels as a list
 #' @param width,height the size of the total plot area. Defaults to the width of a plot in
 #'   Nature.
+#' @param x,y the x and y position relative to the top left corner.
+#' @param fontsize the font size of the text.
 #' @param units the unit of the plot dimensions.
 #' @param show_grid_lines boolean that indicates if helper lines are displayed in the background
 #'   to help align panels.
@@ -173,19 +175,19 @@ panel <- function(plot, x = 0, y = 0, width = NULL, height = NULL, units = NULL)
   res
 }
 
-#' @rdname compose_plots
+#' @rdname xp_compose_plots
 #' @export
 xp_plot <- function(plot, x = 0, y = 0, width = NULL, height = NULL, units = NULL){
   panel(plot = plot, x = x, y = y, width = width, height = height, units = units)
 }
 
-#' @rdname compose_plots
+#' @rdname xp_compose_plots
 #' @export
 xp_text <- function(label, x = 0, y = 0, fontsize = xp$fontsize, hjust = 0, vjust = 1, ...){
   panel(plot = cowplot::ggdraw() + cowplot::draw_label(label, size = fontsize, hjust = hjust, vjust = vjust, ...), x = x, y = y, width = 0, height = 0)
 }
 
-#' @rdname compose_plots
+#' @rdname xp_compose_plots
 #' @export
 xp_origin <- function(..., .plot_objs = NULL, x = 0, y = 0){
   plots <- if(is.null(.plot_objs)){
@@ -198,7 +200,7 @@ xp_origin <- function(..., .plot_objs = NULL, x = 0, y = 0){
   res
 }
 
-#' @rdname compose_plots
+#' @rdname xp_compose_plots
 #' @export
 xp_graphic <- function(filename, x = 0, y = 0, width = NULL, height = NULL,
                         units = c("inches", "cm", "mm", "px", "user"),

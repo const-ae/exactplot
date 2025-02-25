@@ -82,7 +82,8 @@ rendering, because of its superior font support.
 
 ``` r
 xp_compose_plots(
-  xp_text("Welcome to \\texttt{exactplot} with \\LaTeX{} support", x = 1, y = 2, fontsize = xp$fontsize_large, fontface = "bold"),
+  xp_text("Welcome to \\texttt{exactplot} with \\LaTeX{} support", x = 1, y = 2, 
+          fontsize = xp$fontsize_large, fontface = "bold"),
   xp_text("A) Flipper length vs.\\ beak size", x = 1, y = 8),
   xp_plot(scatter_plot, x = 0, y = 12, width = 80, height = 40),
   

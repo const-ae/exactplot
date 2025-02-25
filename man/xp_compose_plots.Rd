@@ -2,6 +2,10 @@
 % Please edit documentation in R/plot_composition.R
 \name{xp_compose_plots}
 \alias{xp_compose_plots}
+\alias{xp_plot}
+\alias{xp_text}
+\alias{xp_origin}
+\alias{xp_graphic}
 \title{Compose plots with millimeter precision}
 \usage{
 xp_compose_plots(
@@ -14,6 +18,22 @@ xp_compose_plots(
   keep_tex_file = FALSE,
   latex_engine = "luatex",
   filename = NULL
+)
+
+xp_plot(plot, x = 0, y = 0, width = NULL, height = NULL, units = NULL)
+
+xp_text(label, x = 0, y = 0, fontsize = xp$fontsize, hjust = 0, vjust = 1, ...)
+
+xp_origin(..., .plot_objs = NULL, x = 0, y = 0)
+
+xp_graphic(
+  filename,
+  x = 0,
+  y = 0,
+  width = NULL,
+  height = NULL,
+  units = c("inches", "cm", "mm", "px", "user"),
+  anchor = c("north west", "south west", "base")
 )
 }
 \arguments{
@@ -36,6 +56,10 @@ compilation completes. Only applies if \code{filename} is not \code{NULL}.}
 
 \item{filename}{optional filename where the plot is saved. If \code{NULL} it is plotted without rendering
 the latex.}
+
+\item{x, y}{the x and y position relative to the top left corner.}
+
+\item{fontsize}{the font size of the text.}
 }
 \description{
 Compose plots with millimeter precision

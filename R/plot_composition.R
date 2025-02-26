@@ -126,7 +126,7 @@ xp_compose_plots <- function(..., .plot_objs = NULL, width = 180, height = 110, 
         plotgardener::plotGG(obj, x = 0, y = 0, width = width, height = height, default.units = units)
       }else if(grid::is.grob(obj)){
         grid::grid.draw(obj)
-      }else if(inherits(obj, "tikz_")){
+      }else if(inherits(obj, "exactplotter_function")){
         grid::grid.draw(obj$FUN(width, height, units))
       }else if(inherits(obj, "exactplot_origin")){
         plot_elements(obj$plots, x0=x0+obj$x0, y0 = y0 + obj$y0)
@@ -203,7 +203,7 @@ xp_origin <- function(..., .plot_objs = NULL, x = 0, y = 0){
 #' @rdname xp_compose_plots
 #' @export
 xp_graphic <- function(filename, x = 0, y = 0, width = NULL, height = NULL,
-                        units = c("inches", "cm", "mm", "px", "user"),
+                        units =  c("mm", "cm", "inches", "px"),
                         anchor = c("north west", "south west", "base")){
   # Note that x and y are from the lower left corner, instead of upper left :/
   stopifnot(file.exists(filename))

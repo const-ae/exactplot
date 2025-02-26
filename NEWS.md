@@ -1,3 +1,4 @@
-# exactplot 0.1.1
+# exactplot 0.1.*
 
-* Fix bug ing `xp_origin`.
+* Fix bug in `xp_origin`.
+* Fix bug in `xp_graphic`.

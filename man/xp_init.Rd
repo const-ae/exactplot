@@ -12,7 +12,7 @@ xp_init(
   fontsize_small = 6,
   fontsize_tiny = 5,
   fontsize_large = 10,
-  additional_latex_packages = c("bm", "amsmath", "amssymb")
+  additional_latex_packages = c("amsmath")
 )
 }
 \arguments{
@@ -21,12 +21,11 @@ freely available.}
 
 \item{fontsize, fontsize_small, fontsize_tiny, fontsize_large}{the font sizes}
 
-\item{additional_latex_packages}{latex packages that are added to \code{options("tikzLatexPackages")}.}
+\item{additional_latex_packages}{latex packages that are added to \code{options("tikzLualatexPackages")}.}
 }
 \description{
-To modify the Latex preamle defaults, take a look at \code{options("tikzDocumentDeclaration")},
-\code{options("tikzLatexPackages")}, \code{options("tikzLatexPackages")}. For all details, read the
-\code{vignette("tikzDevice")}.
+To modify the Latex preamle defaults, take a look at \code{options("tikzDocumentDeclaration")} and
+\code{options("tikzLatexPackages")}. For all details, read the \code{vignette("tikzDevice")}.
 }
 \details{
 I like the IBM Plex fonts for figures (and they are the recommended fonts by EMBL). You can install them on Mac

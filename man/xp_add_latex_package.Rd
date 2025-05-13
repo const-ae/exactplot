@@ -2,7 +2,7 @@
 % Please edit documentation in R/exactplot.R
 \name{xp_add_latex_package}
 \alias{xp_add_latex_package}
-\title{Modify the tikzLatexPackages option}
+\title{Modify the tikzLualatexPackages option}
 \usage{
 xp_add_latex_package(packages)
 }
@@ -12,5 +12,5 @@ in which case it is not modified or just the package name in which case it is wr
 \verb{\\usePackage\{...\}}.}
 }
 \description{
-Modify the tikzLatexPackages option
+Modify the tikzLualatexPackages option
 }

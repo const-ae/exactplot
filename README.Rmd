@@ -105,4 +105,36 @@ Display the output:
 print(magick::image_read_pdf("man/example.pdf", density = 600), info = FALSE)
 ```
 
+# Load additional Latex packages
+
+The `\xleftrightarrow` is defined in the `mathtools` Latex package. You can load it by calling `xp_add_latex_package`.
+
+```{r}
+xp_add_latex_package("mathtools")
+
+adv_label_pl <- scatter_plot +
+  labs(x = "Smaller $\\xleftrightarrow[\\text{[cm]}]{\\text{\\quad Flipper length\\quad}}$ Larger") +
+  theme(axis.title.x = element_text(margin = margin(4, 0, 0, 0, "pt")))
+
+xp_compose_plots(
+  xp_plot(adv_label_pl, x = 0, y = 12, width = 80, height = 40),
+  
+  width = 140, height = 52, filename = "man/example2.pdf"
+)
+```
+
+
+Display the output:
+
+```{r}
+print(magick::image_read_pdf("man/example2.pdf", density = 600), info = FALSE)
+```
+
+
+# Session Info
+
+```{r}
+sessionInfo()
+```
+
 

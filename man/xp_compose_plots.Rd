@@ -32,7 +32,7 @@ xp_graphic(
   y = 0,
   width = NULL,
   height = NULL,
-  units = c("inches", "cm", "mm", "px", "user"),
+  units = c("mm", "cm", "inches", "px"),
   anchor = c("north west", "south west", "base")
 )
 }

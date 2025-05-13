@@ -16,14 +16,13 @@ xp$fontsize_large <- 10
 
 #' Update the default ggplot theme, sets font defaults and extra latex packages
 #'
-#' To modify the Latex preamle defaults, take a look at `options("tikzDocumentDeclaration")`,
-#' `options("tikzLatexPackages")`, `options("tikzLatexPackages")`. For all details, read the
-#' `vignette("tikzDevice")`.
+#' To modify the Latex preamle defaults, take a look at `options("tikzDocumentDeclaration")` and
+#' `options("tikzLatexPackages")`. For all details, read the `vignette("tikzDevice")`.
 #'
 #' @param font_main,font_math,font_mono the font choices for Latex. All IBM Plex fonts are
 #'  freely available.
 #' @param fontsize,fontsize_small,fontsize_tiny,fontsize_large the font sizes
-#' @param additional_latex_packages latex packages that are added to `options("tikzLatexPackages")`.
+#' @param additional_latex_packages latex packages that are added to `options("tikzLualatexPackages")`.
 #'
 #' @details
 #' I like the IBM Plex fonts for figures (and they are the recommended fonts by EMBL). You can install them on Mac
@@ -64,7 +63,7 @@ xp$fontsize_large <- 10
 #' @export
 xp_init <- function(font_main = "IBM Plex Sans", font_math = "IBM Plex Math", font_mono = "IBM Plex Mono",
                     fontsize = 8, fontsize_small = 6, fontsize_tiny = 5, fontsize_large = 10,
-                    additional_latex_packages = c("bm", "amsmath", "amssymb")){
+                    additional_latex_packages = c("amsmath")){
   # Update xp object
   xp$fontsize <- fontsize
   xp$fontsize_small <- fontsize_small
@@ -88,7 +87,7 @@ xp_init <- function(font_main = "IBM Plex Sans", font_math = "IBM Plex Math", fo
   update_geom_defaults("label", list(size = fontsize_small / .pt))
 }
 
-#' Modify the tikzLatexPackages option
+#' Modify the tikzLualatexPackages option
 #'
 #' @param packages the name of the packages. Can be the full import statement (`\usePackage{abcd}`)
 #'   in which case it is not modified or just the package name in which case it is wrapped in
@@ -96,9 +95,11 @@ xp_init <- function(font_main = "IBM Plex Sans", font_math = "IBM Plex Math", fo
 #'
 #' @export
 xp_add_latex_package <- function(packages){
-  packages <- stringr::str_trim(packages)
-  packages <- ifelse(stringr::str_starts(packages, "\\\\usepackage\\{"), packages, paste0("\\usepackage{", packages, "}"))
-  options(tikzLatexPackages = union(getOption("tikzLatexPackages"), packages))
+  if(! is.null(packages)){
+    packages <- stringr::str_trim(packages)
+    packages <- ifelse(stringr::str_starts(packages, "\\\\usepackage\\{"), packages, paste0("\\usepackage{", packages, "}"))
+    options(tikzLualatexPackages = union(getOption("tikzLualatexPackages"), packages))
+  }
 }
 
 #' A simple theme for publications with few superfluous lines

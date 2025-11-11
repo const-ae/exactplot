@@ -127,7 +127,7 @@ xp_compose_plots <- function(..., .plot_objs = NULL, width = 180, height = 110, 
       }else if(grid::is.grob(obj)){
         grid::grid.draw(obj)
       }else if(inherits(obj, "exactplotter_function")){
-        grid::grid.draw(obj$FUN(width, height, units))
+        grid::grid.draw(obj$FUN(width, height, units, x0 = x0, y0 = y0))
       }else if(inherits(obj, "exactplot_origin")){
         plot_elements(obj$plots, x0=x0+obj$x0, y0 = y0 + obj$y0)
       }else if(inherits(obj, "exactplot_panel")){
@@ -220,9 +220,9 @@ xp_graphic <- function(filename, x = 0, y = 0, width = NULL, height = NULL,
     ""
   }
   content <- paste0(r"(\includegraphics)", size_spec, r"({")", abs_filepath, r"("})")
-  res <- list(FUN = (\(figure_width, figure_height, fig_unit){
+  res <- list(FUN = (\(figure_width, figure_height, fig_unit, x0 = 0, y0 = 0){
     stopifnot(fig_unit == units)
-    tikzDevice::grid.tikzNode(x = x, y = figure_height - y, units = units,
+    tikzDevice::grid.tikzNode(x = x + x0, y = figure_height - (y + y0), units = units,
                               opts = paste0("draw=none,fill=none,anchor=", anchor),
                               content = content, draw = FALSE)
   }))

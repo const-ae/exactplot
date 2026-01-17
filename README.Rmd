@@ -38,6 +38,13 @@ You might need to install additional fonts. By default, `exactplot` uses the [IB
 brew install --cask font-ibm-plex-sans font-ibm-plex-mono font-ibm-plex-math
 ```
 
+If you don't have a functional Latex installation, exactplot can help you set that up:
+
+```r
+exactplot::setup_latex()
+```
+
+
 ## Example
 
 ```{r, eval=FALSE}

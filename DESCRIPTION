@@ -1,7 +1,7 @@
 Package: exactplot
 Type: Package
 Title: Produce figures exactly.
-Version: 0.1.4
+Version: 0.1.5
 Authors@R: person("Constantin", "Ahlmann-Eltze", email = "artjom31415@googlemail.com", 
                role = c("aut", "cre"), comment = c(ORCID = "0000-0002-3762-068X"))
 Description: The goal of exactplo` is to produce millimeter-exact figure layouts and annotate your plots with the full power of Latex. 
